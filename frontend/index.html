@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101312">
+  <title>FITCONTROL | Gestão de Academia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">F</span><span>FIT<span class="lime">CONTROL</span><small>GESTÃO INTELIGENTE</small></span></a>
+      <div class="side-label">MENU PRINCIPAL</div>
+      <nav class="navigation">
+        <button class="nav-link active" data-page="dashboard"><span>▦</span> Visão geral</button>
+        <button class="nav-link" data-page="alunos"><span>♙</span> Alunos</button>
+        <button class="nav-link" data-page="professores"><span>♟</span> Professores</button>
+        <button class="nav-link" data-page="planos"><span>◈</span> Planos</button>
+        <button class="nav-link" data-page="pagamentos"><span>＄</span> Pagamentos</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="status-dot"></div><span>Sistema operacional</span><div class="version">v1.0</div></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar">
+        <div><p class="eyebrow">PAINEL DE CONTROLE</p><h1 id="page-title">Visão geral</h1></div>
+        <div class="top-actions"><span class="today" id="today"></span><div class="avatar">FC</div></div>
+      </header>
+      <section id="dashboard-page" class="page active">
+        <div class="welcome-row"><div><h2>Bom treino, boa gestão. <span class="lime">💪</span></h2><p>Acompanhe os principais números da sua academia.</p></div><button class="button primary" data-action="new-student">＋ Novo aluno</button></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total de alunos</span><span class="stat-icon">♙</span></div><strong id="totalAlunos">—</strong><small>Cadastros realizados</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Alunos ativos</span><span class="stat-icon green">↗</span></div><strong id="alunosAtivos">—</strong><small>Com matrícula ativa</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Mensalidades vencidas</span><span class="stat-icon warning">!</span></div><strong id="mensalidadesVencidas">—</strong><small>Precisam de atenção</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Professores</span><span class="stat-icon">♟</span></div><strong id="totalProfessores">—</strong><small>Equipe cadastrada</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Planos disponíveis</span><span class="stat-icon">◈</span></div><strong id="totalPlanos">—</strong><small>Opções cadastradas</small></article>
+        </div>
+        <div class="panel welcome-panel"><div><span class="panel-kicker">FITCONTROL</span><h3>Sua academia, sob controle.</h3><p>Gerencie alunos, equipe, planos e pagamentos em um só lugar.</p></div><div class="abstract-mark">FC</div></div>
+      </section>
+      <section id="alunos-page" class="page">
+        <div class="section-heading"><div><h2>Alunos</h2><p>Gerencie os alunos matriculados na academia.</p></div><button class="button primary" data-action="new-student">＋ Cadastrar aluno</button></div>
+        <div class="panel table-panel"><div class="table-toolbar"><input id="alunos-search" class="search" placeholder="Buscar por nome ou CPF..."><span id="alunos-count" class="muted"></span></div><div class="table-wrap"><table><thead><tr><th>ALUNO</th><th>CPF</th><th>TELEFONE</th><th>PLANO</th><th>STATUS</th><th>AÇÕES</th></tr></thead><tbody id="alunos-table"></tbody></table></div></div>
+      </section>
+      <section id="professores-page" class="page">
+        <div class="section-heading"><div><h2>Professores</h2><p>Organize os profissionais da sua equipe.</p></div><button class="button primary" data-action="new-professor">＋ Cadastrar professor</button></div>
+        <div class="panel table-panel"><div class="table-toolbar"><input id="professores-search" class="search" placeholder="Buscar professor..."></div><div class="table-wrap"><table><thead><tr><th>NOME</th><th>CPF</th><th>TELEFONE</th><th>CREF</th><th>ESPECIALIDADE</th><th>AÇÕES</th></tr></thead><tbody id="professores-table"></tbody></table></div></div>
+      </section>
+      <section id="planos-page" class="page">
+        <div class="section-heading"><div><h2>Planos</h2><p>Configure os planos e valores da academia.</p></div><button class="button primary" data-action="new-plano">＋ Novo plano</button></div>
+        <div id="planos-grid" class="plans-grid"></div>
+      </section>
+      <section id="pagamentos-page" class="page">
+        <div class="section-heading"><div><h2>Pagamentos</h2><p>Acompanhe vencimentos e situação das mensalidades.</p></div><button class="button primary" data-action="new-pagamento">＋ Registrar pagamento</button></div>
+        <div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>ALUNO</th><th>VALOR</th><th>VENCIMENTO</th><th>STATUS</th><th>AÇÕES</th></tr></thead><tbody id="pagamentos-table"></tbody></table></div></div>
+      </section>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal"><div class="modal-header"><div><p class="eyebrow">FITCONTROL</p><h2 id="modal-title">Cadastro</h2></div><button class="close-button" id="modal-close">×</button></div><form id="entity-form"><div id="form-fields" class="form-grid"></div><div class="modal-actions"><button type="button" class="button secondary" id="modal-cancel">Cancelar</button><button class="button primary" type="submit">Salvar cadastro</button></div></form></div>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

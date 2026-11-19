@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: fitcontrol-api
+    runtime: docker
+    rootDir: backend
+    plan: free
+    healthCheckPath: /api/dashboard
+    envVars:
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: PORT
+        value: 8080
