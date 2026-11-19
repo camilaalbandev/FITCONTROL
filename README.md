@@ -31,4 +31,4 @@ Sistema de gestão de academia com backend Java 17 + Spring Boot, frontend HTML/
 
 ## Observações
 
-Este projeto é uma base acadêmica funcional. Antes de uso comercial real, implemente autenticação e autorização, validações adicionais, auditoria, política de privacidade e controles de segurança. Não exponha credenciais do banco no frontend.
+Este projeto é uma base acadêmica funcional. 
